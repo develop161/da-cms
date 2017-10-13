@@ -18,6 +18,14 @@
       <label>Date of birth</label>
       <input type="date" class="form-control" placeholder="Date of birth" name="date-of-birth" [(ngModel)]="patient.dateOfBirth"  required>
     </div>
+    <div class="form-group">
+      <label>Visits</label>
+      <input type="text" list="somethingelse" class="form-control" placeholder="Visits" name="visits" [(ngModel)]="patient.visits">
+      <datalist id="somethingelse" *ngIf='visits' >
+        <option value="{{visit._id}}" *ngFor='let visit of visits'>{{visit.dateOfVisit | date: 'dd/MM/yyyy hh:mm' }}</option>
+      </datalist>
+    </div>
+
     <button type="submit" class="btn btn-success" (click)='onSubmit()'>Submit</button>
 
   </form>
