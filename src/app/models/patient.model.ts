@@ -1,5 +1,3 @@
-import { IPatient } from '../patients/patient';
-
 export class Patient {
   constructor(
     public firstName: string,
@@ -7,5 +5,5 @@ export class Patient {
     public address: string,
     public dateOfBirth: string,
     public _id?: string,
-  ){}
+  ) {}
 }

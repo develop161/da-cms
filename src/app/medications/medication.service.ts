@@ -5,18 +5,17 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
-import { IPatient } from './patient';
+import { IMedication } from './medication';
 
 
 @Injectable()
-export class PatientService {
-  private _mainApiUrl: string = 'http://localhost:3000/api/';
-  private _patientUrl: string = this._mainApiUrl + 'patient/';
+export class MedicationService {
+  private _mainApiUrl: string = 'http://localhost:3000/api/medication/';
 
   constructor(private _http: HttpClient) {  }
 
-  getApiObjects(): Observable<IPatient[]> {
-    return this._http.get<IPatient[]>(this._patientUrl)
+  getApiObjects(): Observable<IMedication[]> {
+    return this._http.get<IMedication[]>(this._mainApiUrl)
       .do(data => {
         // do nothing here -> to be removed later
         //console.log('All: ' + JSON.stringify(data));
@@ -24,17 +23,17 @@ export class PatientService {
       .catch(this._handleError);
   }
 
-  getApiObject(id: string): Observable<IPatient> {
-    return this._http.get<IPatient>( this._patientUrl + id )
+  getApiObject(id: string): Observable<IMedication> {
+    return this._http.get<IMedication>( this._mainApiUrl + id )
       .do(data => {
         console.log('All: ' + JSON.stringify(data));
       })
       .catch(this._handleError);
   }
 
-  addApiObject(patient: IPatient): Observable<IPatient[]> {
-    return this._http.post<IPatient[]>(
-      this._patientUrl,
+  addApiObject(patient: IMedication): Observable<IMedication[]> {
+    return this._http.post<IMedication[]>(
+      this._mainApiUrl,
       patient
     )
       .do(data => {
@@ -43,8 +42,8 @@ export class PatientService {
       .catch(this._handleError);
   }
 
-  deleteApiObject(id: string): Observable<IPatient> {
-    return this._http.delete<IPatient>( this._patientUrl + id )
+  deleteApiObject(id: string): Observable<IMedication> {
+    return this._http.delete<IMedication>( this._mainApiUrl + id )
       .do(data => {
         console.log('All: ' + JSON.stringify(data));
       })

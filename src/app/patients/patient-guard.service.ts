@@ -10,7 +10,7 @@ export class PatientGuardService implements CanActivate {
     let id = route.url[1].path;
     if (!id){
       alert('Invalid patient id provided! Please contact your IT-department to fix this.');
-      this._router.navigate(['/patients']);
+      this._router.navigate(['/visits']);
       return false;
     }
     return true;

@@ -11,10 +11,9 @@ import { PatientService } from './patient.service';
   styleUrls: ['./patient-new.component.scss']
 })
 
-export class PatientNewComponent{
-
+export class PatientNewComponent {
   pageTitle: string = 'Register a new patient';
-  patient : IPatient = new Patient('', '', '', '');
+  patient: IPatient = new Patient('', '', '', '');
   errorMessage: string;
   successMessage: string;
 
@@ -22,16 +21,15 @@ export class PatientNewComponent{
               private _router: Router) {
   }
 
-  onSubmit(){
+  onSubmit() {
 
     // do here some checks
 
     // update data
 
     // save data
-    this._patientService.addPatient(this.patient)
+    this._patientService.addApiObject(this.patient)
       .subscribe(patient => {
-        debugger;
           // output success
           this.successMessage = 'Patient is saved in db';
           // re-initialize component

@@ -9,18 +9,15 @@ import { PatientService } from './patient.service';
 @Component({
   selector: 'cms-patients',
   templateUrl: './patient-list.component.html',
-  styleUrls: ['./patient-list.component.css']
+  styleUrls: ['./patient-list.component.scss']
 })
 
 // Angular class of root component -> convention is to call it AppComponent
 export class PatientListComponent implements OnInit {
   pageTitle: string = 'Patient List';
-  imageWidth: number = 50;
-  imageMargin: number = 2;
-  showImage: boolean = false;
   errorMessage: string;
 
-  // property patients: array of my patients
+  // property visits: array of my visits
   patients: IPatient[];
 
   filteredPatients: IPatient[];
@@ -35,11 +32,12 @@ export class PatientListComponent implements OnInit {
   }
 
   constructor(private _patientService: PatientService,
-              private _router: Router) {  }
+              private _router: Router) {
+  }
 
   // by convention,methods are ormally created fter all of the properties are defined
-  toggleImage(): void {
-    this.showImage = !this.showImage;
+  showDetails(id: string): void {
+    this._router.navigate([`/patients/${id}`]);
   }
 
   performFilter(filterBy: string): IPatient[] {
@@ -52,24 +50,14 @@ export class PatientListComponent implements OnInit {
   ngOnInit(): void {
     console.log('onInit activated');
 
-    // retrieve all patients from web server
-    this._patientService.getPatients()
+    // retrieve all visits from web server
+    this._patientService.getApiObjects()
       .subscribe(patients => {
         debugger;
           this.patients = patients;
           this.filteredPatients = this.patients;
         },
         error => this.errorMessage = <any>error);
-
-/*    this._patientService.addPatient()
-      .subscribe(patient => {
-          console.log(patient);
-        },
-        error => this.errorMessage = <any>error);*/
-  }
-
-  onRatingClicked(message: string): void {
-    this.pageTitle = 'Patient list: ' + message;
   }
 
   onNewPatient(): void {

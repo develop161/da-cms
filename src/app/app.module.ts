@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { PatientModule } from './patients/patient.module';
 import { AppRoutingModule } from './app-routing.module';
+import { MedicationModule } from './medications/medication.module';
+import { VisitModule } from './visits/visit.module';
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
     PatientModule,
+    MedicationModule,
+    VisitModule,
     AppRoutingModule
   ],
   declarations: [

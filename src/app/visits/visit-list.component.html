@@ -1,0 +1,57 @@
+<script src="visit-list.component.ts"></script>
+<div class="jumbotron">
+  <h2>{{pageTitle}}</h2>
+  <p>A list of all visits</p>
+  <div class='row'>
+    <div class='col-md-2'>Filter by:</div>
+    <div class='col-md-4'>
+      <input type='text' [(ngModel)]='listFilter'/>
+    </div>
+  </div>
+  <div class='row pull-right'>
+    <div class='col-md-6'>
+      <button type="button" class="btn" (click)='onNewVisit()'>New Visit</button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class='panel-body'>
+    <div class='table-responsive'>
+      <table class="table table-hover"
+             *ngIf='visits && visits.length'>
+        <thead>
+        <tr>
+          <th>Consult</th>
+          <th>Patient Id</th>
+          <th>Reason of Visit</th>
+          <th>Date of visit</th>
+          <th>Prescribed medication</th>
+          <th>More info</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let visit of filteredVisits">
+          <td>{{ visit.consult }}</td>
+          <td>{{ visit.patient }}</td>
+          <td>{{ visit.reasonOfVisit }}</td>
+          <td>{{ visit.dateOfVisit | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ visit.prescribedMedication }}</td>
+          <td>
+            <button class='btn btn-primary'
+                    (click)='showDetails(visit._id)'>
+              Details
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+<div *ngIf='errorMessage' class='alert alert-danger'>
+  Error: {{ errorMessage }}
+</div>
+
+
