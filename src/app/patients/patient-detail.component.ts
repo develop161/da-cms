@@ -13,6 +13,7 @@ export class PatientDetailComponent implements OnInit {
   pageTitle: string = 'Patient Detail';
   patient: IPatient;
   errorMessage: string;
+  id: string;
 
   constructor(private _route: ActivatedRoute,
               private _patientService: PatientService,
@@ -20,10 +21,10 @@ export class PatientDetailComponent implements OnInit {
 
   ngOnInit(): void {
     // get id of patient
-    let id = this._route.snapshot.paramMap.get('id');
+    this.id = this._route.snapshot.paramMap.get('id');
 
     // retrieve data of patient
-    this._patientService.getPatient(id)
+    this._patientService.getPatient(this.id)
       .subscribe(patient => {
           this.patient = patient;
           this.pageTitle += `: ${patient.firstName} ${patient.lastName}`;
@@ -36,4 +37,16 @@ export class PatientDetailComponent implements OnInit {
     this._router.navigate(['/patients']);
   }
 
+  onDelete(): void {
+
+    // delete patient
+    this._patientService.deletePatient(this.id)
+      .subscribe(patient => {
+          // return to main page
+          this._router.navigate(['/patients']);
+          //this.pageTitle += `: ${patient.firstName} ${patient.lastName}`;
+        },
+        error => this.errorMessage = <any>error);
+
+  }
 }

@@ -55,6 +55,7 @@ export class PatientListComponent implements OnInit {
     // retrieve all patients from web server
     this._patientService.getPatients()
       .subscribe(patients => {
+        debugger;
           this.patients = patients;
           this.filteredPatients = this.patients;
         },

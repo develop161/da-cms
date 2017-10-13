@@ -1,18 +1,34 @@
 <script src="patient-new.component.ts"></script>
 <div class="container">
-  <h1>Hero Form</h1>
-  <form>
+  <h1>{{pageTitle}}</h1>
+  <form #form="ngForm" novalidate>
     <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" required>
+      <label>First Name</label>
+      <input type="text" class="form-control" placeholder="First Name" name="firstname" [(ngModel)]="patient.firstName" required>
     </div>
-
     <div class="form-group">
-      <label for="alterEgo">Alter Ego</label>
-      <input type="text" class="form-control" id="alterEgo">
+      <label>Last Name</label>
+      <input type="text" class="form-control" placeholder="Last Name" name="lastname" [(ngModel)]="patient.lastName" required>
     </div>
-
-    <button type="submit" class="btn btn-success">Submit</button>
+    <div class="form-group">
+      <label>Address</label>
+      <input type="text" class="form-control" placeholder="Address" name="address" [(ngModel)]="patient.address"  required>
+    </div>
+    <div class="form-group">
+      <label>Date of birth</label>
+      <input type="date" class="form-control" placeholder="Date of birth" name="date-of-birth" [(ngModel)]="patient.dateOfBirth"  required>
+    </div>
+    <button type="submit" class="btn btn-success" (click)='onSubmit()'>Submit</button>
 
   </form>
+</div>
+
+{{successMessage}}
+{{errorMessage}}
+
+
+<div class='panel-footer'>
+  <a class='btn btn-default' (click)='onBack()' style='width:80px'>
+    <i class='glyphicon glyphicon-chevron-left'></i> Back
+  </a>
 </div>

@@ -38,11 +38,14 @@
       </div>
 
       <div class='col-md-6'>
-        <img class='center-block img-responsive'
+<!--        <img class='center-block img-responsive'
              [style.width.px]='200'
              [style.margin.px]='2'
              [src]='product.imageUrl'
-             [title]='product.productName'>
+             [title]='product.productName'>-->
+        <a class='btn btn-default' (click)='onDelete()' style='width:80px'>
+          <i class='glyphicon'></i> Delete
+        </a>
       </div>
     </div>
   </div>

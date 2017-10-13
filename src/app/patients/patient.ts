@@ -1,15 +1,17 @@
 export interface IPatient{
-  _id: string;
   firstName: string;
   lastName: string;
   address: string;
   dateOfBirth: string;
-  visits: any[];
-  updatedAt: string;
-  createdAt: string;
-  imageUrl: string;
+  _id?: string;
+  visits?: any[];
+  updatedAt?: string;
+  createdAt?: string;
+  imageUrl?: string;
 }
 
+
+/*
 
 
 // currently not used
@@ -27,8 +29,7 @@ export class Patient implements IPatient{
     public imageUrl: string,
   ){}
 
-  calculateAge(): number{
-      return
-  }
 }
 
+
+*/

@@ -25,8 +25,7 @@ export class PatientService {
   }
 
   getPatient(id: string): Observable<IPatient> {
-    debugger;
-    return this._http.get<IPatient>(this._patientUrl+id)
+    return this._http.get<IPatient>( this._patientUrl + id )
       .do(data => {
         console.log('All: ' + JSON.stringify(data));
         debugger;
@@ -34,17 +33,21 @@ export class PatientService {
       .catch(this._handleError);
   }
 
-  addPatient(): Observable<IPatient[]> {
+  addPatient(patient: IPatient): Observable<IPatient[]> {
+    debugger;
     return this._http.post<IPatient[]>(
       this._patientUrl,
-      {
-        "firstName": "John",
-        "lastName": "Doe",
-        "address": "Homestead 120",
-        "dateOfBirth": "1990-10-02T10:40:30.000Z",
-        "visits": []
-      }
+      patient
     )
+      .do(data => {
+        console.log('All: ' + JSON.stringify(data));
+        debugger;
+      })
+      .catch(this._handleError);
+  }
+
+  deletePatient(id: string): Observable<IPatient> {
+    return this._http.delete<IPatient>( this._patientUrl + id )
       .do(data => {
         console.log('All: ' + JSON.stringify(data));
         debugger;
