@@ -8,8 +8,7 @@ import { VisitService } from './visit.service';
 // Angular decorator: metadata + template
 @Component({
   selector: 'cms-visits',
-  templateUrl: './visit-list.component.html',
-  styleUrls: ['./visit-list.component.scss']
+  templateUrl: './visit-list.component.html'
 })
 
 // Angular class of root component -> convention is to call it AppComponent

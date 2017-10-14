@@ -7,8 +7,7 @@ import { MedicationService } from './medication.service';
 
 @Component({
   selector: 'cms-medication-new',
-  templateUrl: './medication-new.component.html',
-  styleUrls: ['./medication-new.component.scss']
+  templateUrl: './medication-new.component.html'
 })
 
 export class MedicationNewComponent {

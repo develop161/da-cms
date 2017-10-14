@@ -1,4 +1,4 @@
-export interface IMedication{
+export interface IMedication {
   name: string;
   dose: string;
   packageSize: string;

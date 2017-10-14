@@ -8,8 +8,7 @@ import { VisitService } from '../visits/visit.service';
 
 @Component({
   selector: 'cms-patient-new',
-  templateUrl: './patient-new.component.html',
-  styleUrls: ['./patient-new.component.scss']
+  templateUrl: './patient-new.component.html'
 })
 
 export class PatientNewComponent {
@@ -37,8 +36,12 @@ export class PatientNewComponent {
           this.successMessage = 'Patient is saved in db';
           // re-initialize component
           this.patient = new Patient('', '', '', Date.now().toString());
+          this.errorMessage = '';
         },
-        error => this.errorMessage = <any>error);
+        error => {
+          this.errorMessage = <any>error;
+          this.successMessage = '';
+        });
   }
 
   onBack(): void {

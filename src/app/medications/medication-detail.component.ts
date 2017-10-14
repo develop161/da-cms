@@ -5,8 +5,7 @@ import { IMedication } from './medication';
 import { MedicationService } from './medication.service';
 
 @Component({
-  templateUrl: './medication-detail.component.html',
-  styleUrls: ['./medication-detail.component.scss']
+  templateUrl: './medication-detail.component.html'
 })
 export class MedicationDetailComponent implements OnInit {
   pageTitle: string = 'Medication Detail';

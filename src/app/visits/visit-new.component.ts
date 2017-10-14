@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { IVisit } from './visit';
 import { Visit } from '../models/visit.model';
@@ -9,8 +9,7 @@ import { MedicationService } from '../medications/medication.service';
 
 @Component({
   selector: 'cms-visit-new',
-  templateUrl: './visit-new.component.html',
-  styleUrls: ['./visit-new.component.scss']
+  templateUrl: './visit-new.component.html'
 })
 
 export class VisitNewComponent {

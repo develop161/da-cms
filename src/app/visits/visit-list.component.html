@@ -14,7 +14,6 @@
     </div>
   </div>
 </div>
-
 <div class="container">
   <div class='panel-body'>
     <div class='table-responsive'>
@@ -38,7 +37,7 @@
           <td>{{ visit.dateOfVisit | date: 'dd/MM/yyyy' }}</td>
           <td>{{ visit.prescribedMedication }}</td>
           <td>
-            <button class='btn btn-primary'
+            <button class='btn btn-info'
                     (click)='showDetails(visit._id)'>
               Details
             </button>
@@ -48,7 +47,6 @@
       </table>
     </div>
   </div>
-
 </div>
 <div *ngIf='errorMessage' class='alert alert-danger'>
   Error: {{ errorMessage }}

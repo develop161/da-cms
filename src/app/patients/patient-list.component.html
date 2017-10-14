@@ -1,31 +1,41 @@
-<script src="patient-list.component.ts"></script>
-<div class="jumbotron">
+<script src='patient-list.component.ts'></script>
+<div class='jumbotron'>
   <h2>{{pageTitle}}</h2>
   <p>A list of all patients</p>
   <div class='row'>
-    <div class='col-md-2'>Filter by:</div>
+    <div class='col-md-2'>Search by first and last name:</div>
     <div class='col-md-4'>
       <input type='text' [(ngModel)]='listFilter'/>
     </div>
   </div>
   <div class='row pull-right'>
     <div class='col-md-6'>
-      <button type="button" class="btn" (click)='onNewPatient()'>New Patient</button>
+      <button type='button' class='btn' (click)='onNewPatient()'>New Patient</button>
     </div>
   </div>
 </div>
-<div class="container">
+<div class='container'>
   <div class='panel-body'>
     <div class='table-responsive'>
-      <table class="table table-hover"
+      <table class='table table-hover'
              *ngIf='patients && patients.length'>
         <thead>
         <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>address</th>
-          <th>Birthdate</th>
-          <th>Last visited date</th>
+          <th>
+            <button class='btn btn-default' (click)='sortBy("firstName")'>First Name</button>
+          </th>
+          <th>
+            <button class='btn btn-default' (click)='sortBy("lastName")'>Last Name</button>
+          </th>
+          <th>
+            <button class='btn btn-default' (click)='sortBy("address")'>Address</button>
+          </th>
+          <th>
+            <button class='btn btn-default' (click)='sortBy("dateOfBirth")'>Birthdate</button>
+          </th>
+          <th>
+            <button class='btn btn-default' (click)='sortBy("updatedAt")'>Last visited date</button>
+          </th>
           <th>More info</th>
         </tr>
         </thead>
@@ -42,7 +52,7 @@
           <td>{{ patient.dateOfBirth | date: 'dd/MM/yyyy' }}</td>
           <td>{{ patient.updatedAt | date: 'dd/MM/yyyy' }}</td>
           <td>
-            <button class='btn btn-primary'
+            <button class='btn btn-info'
                     (click)='showDetails(patient._id)'>
               Details
             </button>
@@ -52,7 +62,6 @@
       </table>
     </div>
   </div>
-
 </div>
 <div *ngIf='errorMessage' class='alert alert-danger'>
   Error: {{ errorMessage }}

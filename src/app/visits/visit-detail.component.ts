@@ -5,8 +5,7 @@ import { IVisit } from './visit';
 import { VisitService } from './visit.service';
 
 @Component({
-  templateUrl: './visit-detail.component.html',
-  styleUrls: ['./visit-detail.component.scss']
+  templateUrl: './visit-detail.component.html'
 })
 export class VisitDetailComponent implements OnInit {
   pageTitle: string = 'Visit Detail';

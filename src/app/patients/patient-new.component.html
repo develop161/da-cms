@@ -1,42 +1,40 @@
-<script src="patient-new.component.ts"></script>
-<div class="container">
+<script src='patient-new.component.ts'></script>
+<div class='container'>
   <h1>{{pageTitle}}</h1>
-  <form #form="ngForm" novalidate>
-    <div class="form-group">
-      <label>First Name</label>
-      <input type="text" class="form-control" placeholder="First Name" name="firstname" [(ngModel)]="patient.firstName" required>
+  <form #form='ngForm' novalidate>
+    <div class='input-group'>
+      <span class='input-group-addon'><i class='glyphicon glyphicon-user'></i></span>
+      <input type='text' class='form-control' placeholder='First Name' name='firstname' [(ngModel)]='patient.firstName' required>
     </div>
-    <div class="form-group">
-      <label>Last Name</label>
-      <input type="text" class="form-control" placeholder="Last Name" name="lastname" [(ngModel)]="patient.lastName" required>
+    <div class='input-group'>
+      <span class='input-group-addon'><i class='glyphicon glyphicon-user'></i></span>
+      <input type='text' class='form-control' placeholder='Last Name' name='lastname' [(ngModel)]='patient.lastName' required>
     </div>
-    <div class="form-group">
-      <label>Address</label>
-      <input type="text" class="form-control" placeholder="Address" name="address" [(ngModel)]="patient.address"  required>
+    <div class='input-group'>
+      <span class='input-group-addon'><i class='glyphicon glyphicon-home'></i></span>
+      <input type='text' class='form-control' placeholder='Address' name='address' [(ngModel)]='patient.address'  required>
     </div>
-    <div class="form-group">
+    <div class='form-group'>
       <label>Date of birth</label>
-      <input type="date" class="form-control" placeholder="Date of birth" name="date-of-birth" [(ngModel)]="patient.dateOfBirth"  required>
+      <input type='date' class='form-control' placeholder='Date of birth' name='date-of-birth' [(ngModel)]='patient.dateOfBirth'  required>
     </div>
-    <div class="form-group">
-      <label>Visits</label>
-      <input type="text" list="somethingelse" class="form-control" placeholder="Visits" name="visits" [(ngModel)]="patient.visits">
-      <datalist id="somethingelse" *ngIf='visits' >
-        <option value="{{visit._id}}" *ngFor='let visit of visits'>{{visit.dateOfVisit | date: 'dd/MM/yyyy hh:mm' }}</option>
-      </datalist>
+    <div class='form-group'>
+      <label>Visits [Reason of visit (date)]</label>
+      <select multiple class='form-control' name='visits' [(ngModel)]='patient.visits'>
+        <option value='{{visit._id}}' *ngFor='let visit of visits'>{{visit.reasonOfVisit}} ({{visit.dateOfVisit | date: 'dd/MM/yyyy hh:mm' }})  </option>
+      </select>
     </div>
-
-    <button type="submit" class="btn btn-success" (click)='onSubmit()'>Submit</button>
-
+    <button type='submit' class='btn btn-success' (click)='onSubmit()'>Submit</button>
   </form>
 </div>
-
-{{successMessage}}
-{{errorMessage}}
-
-
+<div class='alert alert-success' *ngIf='successMessage'>
+  <strong>{{ successMessage }}</strong>
+</div>
+<div class='alert alert-danger' *ngIf='errorMessage'>
+  <strong>{{ errorMessage }}</strong>
+</div>
 <div class='panel-footer'>
-  <a class='btn btn-default' (click)='onBack()' style='width:80px'>
+  <a class='btn btn-default' (click)='onBack()'>
     <i class='glyphicon glyphicon-chevron-left'></i> Back
   </a>
 </div>

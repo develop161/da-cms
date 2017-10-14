@@ -1,40 +1,40 @@
-<script src="medication-detail.component.ts"></script>
-<div class='panel panel-primary' *ngIf="medication">
-  <div class="jumbotron text-center">
+<script src='medication-detail.component.ts'></script>
 
-    <div class='panel-heading'>
-      {{ pageTitle }}
-    </div>
+<div class='jumbotron text-center'>
+  <div class='panel-heading'>
+    {{ pageTitle }}
+  </div>
+</div>
 
-    <div class='panel-body'>
-      <div class='row'>
-        <div class='col-md-6'>
-          <div class='row'>
-            <div class='col-md-3'>Name:</div>
-            <div class='col-md-6'>{{medication.name}}</div>
-          </div>
-          <div class='row'>
-            <div class='col-md-3'>Dose:</div>
-            <div class='col-md-6'>{{medication.dose}}</div>
-          </div>
-          <div class='row'>
-            <div class='col-md-3'>Package size:</div>
-            <div class='col-md-6'>{{medication.packageSize}}</div>
-          </div>
+<div class='panel panel-primary' *ngIf='medication'>
+  <div class='panel-body'>
+    <div class='row'>
+      <div class='col-md-6'>
+        <div class='row'>
+          <div class='col-md-3'>Name:</div>
+          <div class='col-md-6'>{{ medication.name }}</div>
         </div>
-
-        <div class='col-md-6'>
-          <a class='btn btn-default' (click)='onDelete()' style='width:80px'>
-            <i class='glyphicon'></i> Delete
-          </a>
+        <div class='row'>
+          <div class='col-md-3'>Dose:</div>
+          <div class='col-md-6'>{{ medication.dose }}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-3'>Package size:</div>
+          <div class='col-md-6'>{{ medication.packageSize }}</div>
         </div>
       </div>
-    </div>
-
-    <div class='panel-footer'>
-      <a class='btn btn-default' (click)='onBack()' style='width:80px'>
-        <i class='glyphicon glyphicon-chevron-left'></i> Back
-      </a>
+      <div class='col-md-6'>
+        <a class='btn btn-danger' (click)='onDelete()'>
+          <i class='glyphicon'></i> Delete
+        </a>
+      </div>
     </div>
   </div>
 </div>
+
+<div class='panel-footer'>
+  <a class='btn btn-default' (click)='onBack()'>
+    <i class='glyphicon glyphicon-chevron-left'></i> Back
+  </a>
+</div>
+

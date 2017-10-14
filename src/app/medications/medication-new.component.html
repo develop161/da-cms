@@ -1,30 +1,33 @@
-<script src="medication-new.component.ts"></script>
-<div class="container">
+<script src='medication-new.component.ts'></script>
+<div class='container'>
   <h1>{{pageTitle}}</h1>
-  <form #form="ngForm" novalidate>
-    <div class="form-group">
+  <form #form='ngForm' novalidate>
+    <div class='form-group'>
       <label>Name</label>
-      <input type="text" class="form-control" placeholder="name" name="name" [(ngModel)]="medication.name" required>
+      <input type='text' class='form-control' placeholder='name' name='name' [(ngModel)]='medication.name' required>
     </div>
-    <div class="form-group">
+    <div class='form-group'>
       <label>Dose</label>
-      <input type="text" class="form-control" placeholder="Dose" name="dose" [(ngModel)]="medication.dose" required>
+      <input type='text' class='form-control' placeholder='Dose' name='dose' [(ngModel)]='medication.dose' required>
     </div>
-    <div class="form-group">
+    <div class='form-group'>
       <label>Package Size</label>
-      <input type="text" class="form-control" placeholder="Package Size" name="package-size" [(ngModel)]="medication.packageSize"  required>
+      <input type='text' class='form-control' placeholder='Package Size' name='package-size' [(ngModel)]='medication.packageSize'  required>
     </div>
-    <button type="submit" class="btn btn-success" (click)='onSubmit()'>Submit</button>
+    <button type='submit' class='btn btn-success' (click)='onSubmit()'>Submit</button>
 
   </form>
 </div>
 
-{{successMessage}}
-{{errorMessage}}
-
+<div class="alert alert-success" *ngIf='successMessage'>
+  <strong>{{ successMessage }}</strong>
+</div>
+<div class="alert alert-danger" *ngIf='errorMessage'>
+  <strong>{{ errorMessage }}</strong>
+</div>
 
 <div class='panel-footer'>
-  <a class='btn btn-default' (click)='onBack()' style='width:80px'>
+  <a class='btn btn-default' (click)='onBack()'>
     <i class='glyphicon glyphicon-chevron-left'></i> Back
   </a>
 </div>

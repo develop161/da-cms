@@ -8,15 +8,15 @@ import { PatientService } from './patient.service';
 // Angular decorator: metadata + template
 @Component({
   selector: 'cms-patients',
-  templateUrl: './patient-list.component.html',
-  styleUrls: ['./patient-list.component.scss']
+  templateUrl: './patient-list.component.html'
 })
 
 // Angular class of root component -> convention is to call it AppComponent
 export class PatientListComponent implements OnInit {
   pageTitle: string = 'Patient List';
   errorMessage: string;
-
+  reverse: boolean = false;
+  propertyName: string = 'firstName';
   // property visits: array of my visits
   patients: IPatient[];
 
@@ -63,4 +63,25 @@ export class PatientListComponent implements OnInit {
   onNewPatient(): void {
     this._router.navigate(['/patient-new']);
   }
+
+  sortBy(propertyName: string): void{
+    this.filteredPatients.sort(
+      (a: IPatient, b: IPatient): number => {
+        let property = this.propertyName;
+        if (a[property] < b[this.propertyName]){
+          if(this.reverse) return 1;
+          return -1;
+        }
+        if (a[this.propertyName] > b[this.propertyName]){
+          if(this.reverse) return -1;
+          return 1;
+        }
+        return 0;
+      }
+    );
+
+    this.reverse = (this.propertyName === propertyName) ? !this.reverse : false;
+    this.propertyName = propertyName;
+  }
+
 }

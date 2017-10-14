@@ -8,8 +8,7 @@ import { MedicationService } from './medication.service';
 // Angular decorator: metadata + template
 @Component({
   selector: 'cms-medications',
-  templateUrl: './medication-list.component.html',
-  styleUrls: ['./medication-list.component.scss']
+  templateUrl: './medication-list.component.html'
 })
 
 // Angular class of root component -> convention is to call it AppComponent
