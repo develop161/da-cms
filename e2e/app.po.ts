@@ -5,7 +5,7 @@ export class APMPage {
     return browser.get('/');
   }
 
-  getParagraphText() {
-    return element(by.css('pm-root h1')).getText();
+  getFirstMenuItemText() {
+    return element(by.css('.navbar .container-fluid .nav li a')).getText();
   }
 }

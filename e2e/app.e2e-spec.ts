@@ -7,8 +7,10 @@ describe('apm App', () => {
     page = new APMPage();
   });
 
-  it('should display welcome message', () => {
+  it('First menu item', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to Angular: Getting Started!!');
+    expect(page.getFirstMenuItemText()).toEqual('Home');
   });
+
+
 });
