@@ -53,7 +53,6 @@ export class PatientListComponent implements OnInit {
     // retrieve all visits from web server
     this._patientService.getApiObjects()
       .subscribe(patients => {
-        debugger;
           this.patients = patients;
           this.filteredPatients = this.patients;
         },

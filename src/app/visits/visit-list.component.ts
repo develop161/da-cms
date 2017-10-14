@@ -51,7 +51,6 @@ export class VisitListComponent implements OnInit {
     // retrieve all visits from web server
     this._visitService.getApiObjects()
       .subscribe(visits => {
-          debugger;
           this.visits = visits;
           this.filteredVisits = this.visits;
         },

@@ -26,7 +26,6 @@ export class PatientDetailComponent implements OnInit {
     this._patientService.getApiObject(this.id)
       .subscribe(patient => {
           this.patient = patient;
-          debugger;
           this.pageTitle += `: ${patient.firstName} ${patient.lastName}`;
           },
         error => this.errorMessage = <any>error);

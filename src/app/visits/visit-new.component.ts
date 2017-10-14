@@ -9,7 +9,8 @@ import { MedicationService } from '../medications/medication.service';
 
 @Component({
   selector: 'cms-visit-new',
-  templateUrl: './visit-new.component.html'
+  templateUrl: './visit-new.component.html',
+  providers: [VisitService, PatientService, MedicationService]
 })
 
 export class VisitNewComponent {
