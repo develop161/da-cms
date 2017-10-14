@@ -1,14 +1,14 @@
-
 .panel-primary{
   border-color: #000000;
-
-  .panel-heading{
-    background-color: #000000;
-    opacity: .8;
-  }
   .panel-body{
-    .jumbotron{
+    .jumbotron {
       margin-bottom: 0;
+      .row {
+        img {
+          max-height:300px;
+          padding-bottom:50px
+        }
+      }
     }
   }
 }

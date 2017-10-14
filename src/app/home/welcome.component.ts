@@ -5,5 +5,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./welcome.component.scss'],
 })
 export class WelcomeComponent {
-    public pageTitle: string = 'Welcome';
+  public pageTitle: string = 'Doctor Appointment CMS';
+  public subTitle: string = 'For a quick, easy and reliable doctor appointment system!';
+
 }

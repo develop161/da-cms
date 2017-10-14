@@ -1,0 +1,16 @@
+.pagination {
+    li {
+        font-size: 14px;
+        a {
+            color: #000000;
+        }
+        &.active a {
+            background-color: #000000;
+            border-color: #000000;
+            color: #ffffff
+        }
+        &.disabled a {
+            color: #777;
+        }
+    }
+}

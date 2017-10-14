@@ -3,12 +3,14 @@ import { Router } from '@angular/router';
 
 import { IPatient } from './patient';
 import { PatientService } from './patient.service';
-
+import { PagerService } from '../shared/index'
 
 // Angular decorator: metadata + template
 @Component({
   selector: 'cms-patients',
-  templateUrl: './patient-list.component.html'
+  templateUrl: './patient-list.component.html',
+  styleUrls: ['./patient-list.component.scss'],
+  providers: [PagerService]
 })
 
 // Angular class of root component -> convention is to call it AppComponent
@@ -19,9 +21,14 @@ export class PatientListComponent implements OnInit {
   propertyName: string = 'firstName';
   // property visits: array of my visits
   patients: IPatient[];
-
   filteredPatients: IPatient[];
   _listFilter: string;
+
+  // pager object
+  pager: any = {};
+
+  // paged items
+  pagedItems: any[];
 
   get listFilter(): string {
     return this._listFilter;
@@ -29,9 +36,16 @@ export class PatientListComponent implements OnInit {
   set listFilter(value) {
     this._listFilter = value;
     this.filteredPatients = this.listFilter ? this.performFilter(this.listFilter) : this.patients;
+    // restore page when search filter deleted
+    if (!value) {
+      this.filteredPatients = this.patients;
+    }
+    // re-apply paging
+    this.setPage(1);
   }
 
   constructor(private _patientService: PatientService,
+              private _pagerService: PagerService,
               private _router: Router) {
   }
 
@@ -55,6 +69,8 @@ export class PatientListComponent implements OnInit {
       .subscribe(patients => {
           this.patients = patients;
           this.filteredPatients = this.patients;
+          // initialize to page 1
+          this.setPage(1);
         },
         error => this.errorMessage = <any>error);
   }
@@ -81,6 +97,20 @@ export class PatientListComponent implements OnInit {
 
     this.reverse = (this.propertyName === propertyName) ? !this.reverse : false;
     this.propertyName = propertyName;
+    // re-apply paging
+    this.setPage(1);
   }
+
+  setPage(page: number) {
+    if (page < 1 || page > this.pager.totalPages) {
+        return;
+    }
+
+    // get pager object from service
+    this.pager = this._pagerService.getPager(this.filteredPatients.length, page);
+
+    // get current page of items
+    this.pagedItems = this.filteredPatients.slice(this.pager.startIndex, this.pager.endIndex + 1);
+}
 
 }

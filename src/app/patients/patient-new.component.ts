@@ -8,7 +8,8 @@ import { VisitService } from '../visits/visit.service';
 
 @Component({
   selector: 'cms-patient-new',
-  templateUrl: './patient-new.component.html'
+  templateUrl: './patient-new.component.html',
+  styleUrls: ['./patient-new.component.scss']
 })
 
 export class PatientNewComponent {
