@@ -27,3 +27,7 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## General info
 
 As this is a plain Angular
+
+
+
+![Alt text](Printscreen.png?raw=true "CMS")
