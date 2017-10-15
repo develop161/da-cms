@@ -5,7 +5,7 @@ This frontend system is using the following backend to store and retrieve data: 
 
 # Technologies
 
-This is a plain Angular / Typescript project, which is using Bootstrap for the UI side of things. To structure and organize the CSS code, we use SCCS.
+This is a plain Angular / Typescript project, which is mainly using Bootstrap and Underscore JS and styling libraries. To structure and organize the CSS code, we use SCCS.
 
 ## Development server
 Run `ng serve` or `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
