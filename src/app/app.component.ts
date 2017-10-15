@@ -14,5 +14,5 @@ import { Component } from '@angular/core';
 // Angular class of root component -> convention is to call it AppComponent
 export class AppComponent {
   // property pageTitle
-  pageTitle: string = 'CTCUE'; // default value
+  pageTitle: string = 'CMS'; // default value
 }

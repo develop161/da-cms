@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { IPatient } from './patient';
 import { PatientService } from './patient.service';
-import { PagerService } from '../shared/index'
+import { PagerService } from '../shared/paging-export';
 
 // Angular decorator: metadata + template
 @Component({
